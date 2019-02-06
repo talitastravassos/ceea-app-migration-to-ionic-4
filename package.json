@@ -1,8 +1,8 @@
 {
-  "name": "myApp",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "name": "CEEA - Autismo",
+  "version": "1.0.3",
+  "author": "Talita S Travassos",
+  "homepage": "https://github.com/talitastravassos",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
