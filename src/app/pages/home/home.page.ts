@@ -31,6 +31,11 @@ export class HomePage {
     this.navCtrl.navigateForward('/score');
   }
 
+  /* navigation to Game Page*/
+  game(){
+    this.navCtrl.navigateForward('/game');
+  }
+
   
 
 }

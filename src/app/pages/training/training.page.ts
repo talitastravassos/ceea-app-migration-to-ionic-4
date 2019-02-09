@@ -15,8 +15,8 @@ export class TrainingPage implements OnInit {
 
   public cards: Array<CardModel>
 
-  getCartaos(){
-    this.cards = this.cardService.getCartao()
+  getCards(){
+    this.cards = this.cardService.getCard()
     console.log(this.cards)
   }
 
@@ -24,7 +24,7 @@ export class TrainingPage implements OnInit {
 
     console.log('TrainingPage');
 
-    this.getCartaos()
+    this.getCards()
   }
 
 }

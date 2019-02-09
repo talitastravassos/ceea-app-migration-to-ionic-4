@@ -465,14 +465,14 @@ export class CardsService {
   /**
    * funçao que fornece o array com todos os cartões
    */
-  public getCartao(): Array<CardModel> {
+  public getCard(): Array<CardModel> {
 
     return this.cardArray
   }
   /**
    * Função que fornece apenas um cartão escolhido randomicamente
    */
-  public getCartaoRandom(): CardModel {
+  public getCardRandom(): CardModel {
     let random = Math.floor((Math.random() * 64) + 1);
 
     return this.cardArray[random]
