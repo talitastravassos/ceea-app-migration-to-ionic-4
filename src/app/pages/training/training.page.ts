@@ -1,3 +1,5 @@
+import { CardModel } from './../../models/card.model';
+import { CardsService } from './../../services/cards/cards.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private cardService: CardsService
+  ) { }
+
+  public cards: Array<CardModel>
+
+  getCartaos(){
+    this.cards = this.cardService.getCartao()
+    console.log(this.cards)
+  }
 
   ngOnInit() {
+
+    console.log('TrainingPage');
+
+    this.getCartaos()
   }
 
 }

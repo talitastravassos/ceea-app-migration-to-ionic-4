@@ -16,10 +16,21 @@ export class HomePage {
 
   }
 
-
+  /* Navigation to About Page  */
   goToAbout(){
     this.navCtrl.navigateForward('/about');
   }
+
+  /* Navigation to Training Page  */
+  goToTraining(){
+    this.navCtrl.navigateForward('/training');
+  }
+
+  /* Navigation to Score Page  */
+  goToScores(){
+    this.navCtrl.navigateForward('/score');
+  }
+
   
 
 }
