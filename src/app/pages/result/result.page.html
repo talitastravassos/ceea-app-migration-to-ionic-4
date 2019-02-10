@@ -14,19 +14,19 @@
   <ion-list>
     <ion-item>
       <ion-icon color="primary" name="checkmark-circle" item-start></ion-icon>
-      <strong>Acertos:</strong> {{ acertos }}
+      <strong>Acertos: </strong> {{ hits }}
     </ion-item>
     <ion-item>
       <ion-icon color="danger" name="close-circle" item-start></ion-icon>
-      <strong>Erros:</strong> {{ erros }}
+      <strong>Erros: </strong> {{ mistakes }}
     </ion-item>
     <ion-item>
       <ion-icon color="dark" name="happy" item-start></ion-icon>
-      <strong>Aproveitamento:</strong> {{ aproveitamentoRodada() }}%
+      <strong>Aproveitamento: </strong> {{ profitMatch() }}%
     </ion-item>
   </ion-list>
 
-  <ion-button expand="block" shade="round" color="dark" (click)="resetRodada()">
+  <ion-button expand="block" shade="round" color="dark" (click)="resetMatch()">
     <strong>INICIO</strong>
   </ion-button>
 </ion-content>

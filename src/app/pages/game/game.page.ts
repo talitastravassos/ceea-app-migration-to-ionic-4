@@ -19,7 +19,7 @@ export class GamePage implements OnInit {
 
 
   /* variable that defines which button will display the correct answer */
-  random: number = Math.floor((Math.random() * 3) + 1);
+  random: number;
   hits: number = 0
   mistakes: number = 0
   match: number;
@@ -29,11 +29,23 @@ export class GamePage implements OnInit {
   public button2: CardModel
   public button3: CardModel
 
+
+  /**
+   * initButtons
+   */
+  public initButtons() {
+    this.button1 = this.cardService.getCardRandom()
+    this.button2 = this.cardService.getCardRandom()
+    this.button3 = this.cardService.getCardRandom()
+    
+  }
+
   /**
    * Function that determines the alternatives shown on the buttons
    */
   public options() {
-
+    this.initButtons();
+    
     this.card = this.cardService.getCardRandom()
 
     if (this.random == 1) {
@@ -74,18 +86,18 @@ export class GamePage implements OnInit {
     console.log(answer)
 
     if(answer == this.card){
-      this.hits++
+      this.hits = 1
       boolAnswer = 1;
-      console.log("hits: ", this.hits)
+      //console.log("hits: ", this.hits)
       this.matchService.setHits(this.hits)// hits++
       this.matchService.setNumMatch(numMatch)// numMatch++
       this.matchService.setCurrentCard(this.card);
       this.navCtrl.navigateForward(`/answer/${boolAnswer}`)
      // this.navCtrl.push(answerPage, { answer: this.cartao, hits: this.hits, mistakes: this.mistakes })// push na Pageanswer
     } else {
-      this.mistakes++
+      this.mistakes = 1
       boolAnswer = 0;
-      console.log("mistakes: ", this.mistakes)
+      //console.log("mistakes: ", this.mistakes)
       this.matchService.setMistakes(this.mistakes)// mistakes++
       this.matchService.setNumMatch(numMatch)// numMatch++
       this.matchService.setCurrentCard(this.card);
@@ -95,9 +107,10 @@ export class GamePage implements OnInit {
 
   }
 
-  ionViewWillEnter(){
-    this.match = (this.matchService.getNumMatch()) + 1
-    this.options()
+  ionViewDidEnter(){
+    this.match = (this.matchService.getNumMatch()) + 1;
+    this.random = Math.floor((Math.random() * 3) + 1);
+    this.options();
 
     console.log("card: ", this.card)
     console.log("random: ", this.random)
