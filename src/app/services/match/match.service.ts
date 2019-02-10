@@ -1,3 +1,4 @@
+import { CardModel } from './../../models/card.model';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -19,6 +20,11 @@ export class MatchService {
       sessionStorage.setItem("hits", JSON.stringify(hits))
     }
 
+  }
+
+  /* Set current card of match in sessionStorage */
+  public setCurrentCard(card: CardModel){
+    sessionStorage.setItem("currentCard", JSON.stringify(card))
   }
 
   
@@ -57,6 +63,14 @@ export class MatchService {
 
   public getNumMatch(): number {
     return Number(sessionStorage.getItem("numMatch"))
+  }
+
+  /**
+   * getCurrentCard
+   */
+  public getCurrentCard(): CardModel {
+    
+    return JSON.parse(sessionStorage.getItem("currentCard"));
   }
 
   /**

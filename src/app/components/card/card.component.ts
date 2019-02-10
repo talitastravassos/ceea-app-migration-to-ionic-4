@@ -2,6 +2,7 @@ import { CardModel } from './../../models/card.model';
 import { CardsService } from './../../services/cards/cards.service';
 import { MatchService } from './../../services/match/match.service';
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-card',
@@ -12,10 +13,9 @@ export class CardComponent implements OnInit {
 
   constructor(
     private cardService: CardsService,
-    public matchService: MatchService
-  ) {
-
-   }
+    public matchService: MatchService,
+    public navCtrl: NavController
+    ) {   }
 
   /* variable that defines which button will display the correct answer */
   random: number = Math.floor((Math.random() * 3) + 1);
@@ -68,29 +68,44 @@ export class CardComponent implements OnInit {
    */
   public verifyAnswer(answer: CardModel) {
     let numMatch = 1;
+    let boolAnswer = null;
 
     console.log(answer)
 
     if(answer == this.card){
       this.hits++
+      boolAnswer = 1;
       console.log("hits: ", this.hits)
       this.matchService.setHits(this.hits)// hits++
       this.matchService.setNumMatch(numMatch)// numMatch++
+      this.matchService.setCurrentCard(this.card);
+      this.navCtrl.navigateForward(`/answer/${boolAnswer}`)
      // this.navCtrl.push(answerPage, { answer: this.cartao, hits: this.hits, mistakes: this.mistakes })// push na Pageanswer
     } else {
       this.mistakes++
+      boolAnswer = 0;
       console.log("mistakes: ", this.mistakes)
       this.matchService.setMistakes(this.mistakes)// mistakes++
       this.matchService.setNumMatch(numMatch)// numMatch++
+      this.matchService.setCurrentCard(this.card);
+      this.navCtrl.navigateForward(`/answer/${boolAnswer}`)
       //this.navCtrl.push(answerPage, { answer: this.cartao, hits: this.hits, mistakes: this.mistakes })// push na Pageanswer
     }
 
   }
 
-  ngOnInit() {
-
+  ionViewWillEnter(){
     this.options()
+  
+    console.log("card: ", this.card)
+    console.log("random: ", this.random)
 
+  }
+
+
+  ngOnInit() {
+    this.options()
+  
     console.log("card: ", this.card)
     console.log("random: ", this.random)
   }

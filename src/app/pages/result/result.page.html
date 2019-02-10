@@ -1,10 +1,32 @@
 <ion-header>
     <ion-toolbar color="primary">
         <ion-back-button></ion-back-button>
-    <ion-title>Resultsdo</ion-title>
+    <ion-title>Resultado</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="all-page">
 
+  <div padding class="animated fadeInDown logo">
+    <img src="assets/imgs/logo.png">
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-icon color="primary" name="checkmark-circle" item-start></ion-icon>
+      <strong>Acertos:</strong> {{ acertos }}
+    </ion-item>
+    <ion-item>
+      <ion-icon color="danger" name="close-circle" item-start></ion-icon>
+      <strong>Erros:</strong> {{ erros }}
+    </ion-item>
+    <ion-item>
+      <ion-icon color="dark" name="happy" item-start></ion-icon>
+      <strong>Aproveitamento:</strong> {{ aproveitamentoRodada() }}%
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" shade="round" color="dark" (click)="resetRodada()">
+    <strong>INICIO</strong>
+  </ion-button>
 </ion-content>

@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
   { path: 'score', loadChildren: './pages/score/score.module#ScorePageModule' },
   { path: 'reset-password', loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule' },
-  { path: 'answer', loadChildren: './pages/answer/answer.module#AnswerPageModule' },
+  { path: 'answer/:bool', loadChildren: './pages/answer/answer.module#AnswerPageModule' },
   { path: 'result', loadChildren: './pages/result/result.module#ResultPageModule' },
   { path: 'training', loadChildren: './pages/training/training.module#TrainingPageModule' },
 ];
