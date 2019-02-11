@@ -21,17 +21,6 @@ export class ScorePage implements OnInit {
 
   currentScores: Array<Object>
 
-    /**
-   * getScores
-   */
-  public getScores(n: number): Object {
-
-    let scores = this.scoreService.getScore(n);
-    console.log("Pontuacao recebida: ", scores)
-
-    return scores
-  }
-
     /*
    * getArrayPontuacoes: função que retorna um array com todas as pontuações salvas no localStorage até
    * o momento
